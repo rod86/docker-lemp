@@ -5,7 +5,7 @@
 !.env.dist
 mysql/data
 !mysql/data/.gitkeep
-code
+code/
 !code/.gitkeep
 log/
 !log/.gitkeep
