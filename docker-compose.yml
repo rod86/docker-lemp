@@ -31,8 +31,9 @@ services:
             - MYSQL_PASSWORD=${DB_PASSWORD}
             - MYSQL_DATABASE=${DB_USER}
         ports:
-            - 3306:3306  
+            - ${DB_PORT:-3306}:3306  
         volumes:
-            - ./mysql/data:/var/lib/mysql
+            - dbdata:/var/lib/mysql
     
-    
+volumes: 
+    dbdata:
