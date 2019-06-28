@@ -25,6 +25,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Setup php
 COPY php.ini /usr/local/etc/php/php.ini
 
+# Setup xdebug
+RUN pecl install xdebug-2.6.1 \
+    && docker-php-ext-enable xdebug
+COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 WORKDIR /var/www
+
+EXPOSE 9000
 
 CMD ["php-fpm"]
