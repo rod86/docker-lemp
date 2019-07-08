@@ -3,28 +3,28 @@ version: '3'
 services:
     nginx:
         container_name: ${APP_NAME}.nginx
-        build: ./nginx
+        image: nginx:1.14.1
         ports:
             - ${SERVER_PORT}:80
             - 443:443
+        volumes:
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./app:/var/www
         links: 
             - php
-        volumes:
-            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-            - ./log:/var/log/nginx
-            - ./code:/var/www
         
     php:
         container_name: ${APP_NAME}.php
         build: ./php
         volumes: 
-            - ./code:/var/www
+            - ./app:/var/www
         links: 
-            - database
+            - mariadb
            
-    database:
-        container_name: ${APP_NAME}.database
-        image: mysql:5.7
+    mariadb:
+        container_name: ${APP_NAME}.mariadb
+        image: mariadb:10
+        restart: always
         environment: 
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_USER=${DB_USER}
