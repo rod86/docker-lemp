@@ -23,7 +23,7 @@ services:
            
     mariadb:
         container_name: ${APP_NAME}.mariadb
-        image: mariadb:10.6
+        image: mariadb:10.6.7
         restart: always
         environment: 
             - MYSQL_ROOT_PASSWORD=root
