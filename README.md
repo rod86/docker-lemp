@@ -1,11 +1,21 @@
 # Docker LEMP
 
-- Nginx 1.14.1
-- PHP 7.2
-- MariaDB 10
+- Nginx 1.20
+- PHP 7.4
+- MariaDB 10.6
 
 ## Setup
 
-- Create and configure an *.env* file 
-- Build containers: `docker-compose build`
-- Start containers: `docker-compose up`
+- Create and configure an *.env* file from *.env.dist*
+
+- Add the below line to the hosts file
+
+```
+127.0.0.1  api.symfonyauctions.local
+```
+
+- Build containers:
+  
+  ```
+  make build
+  ```

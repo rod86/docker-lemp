@@ -6,5 +6,3 @@
 !.env.dist
 mysql/data
 !mysql/data/.gitkeep
-app/
-!app/.gitkeep

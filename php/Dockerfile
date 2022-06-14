@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 
 # Install libraries
 RUN apt-get update && apt-get install -y \
@@ -12,10 +12,6 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev g++
 
-# Configure PHP extensions
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-configure zip --with-libzip
-
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql zip gd intl
 
@@ -26,9 +22,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY php.ini /usr/local/etc/php/php.ini
 
 # Setup xdebug
-RUN pecl install xdebug-2.6.1 \
+RUN pecl install xdebug-3.1.4 \
     && docker-php-ext-enable xdebug
-COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini    
 
 WORKDIR /var/www
 
