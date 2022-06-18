@@ -3,8 +3,10 @@
 .DS_STORE
 
 .env
-!.env.dist
+!.env.sample
+
 mysql/data
 !mysql/data/.gitkeep
+
 app/
 !app/.gitkeep

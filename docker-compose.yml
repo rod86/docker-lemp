@@ -3,7 +3,7 @@ version: '3'
 services:
     nginx:
         container_name: ${APP_NAME}.nginx
-        image: nginx:1.21
+        image: nginx:1.20
         ports:
             - ${SERVER_PORT}:80
             - 443:443

@@ -1,12 +1,12 @@
 # Docker LEMP
 
-- Nginx 1.21
+- Nginx 1.20
 - PHP 8.1
 - MariaDB 10.6.7
 
 ## Setup
 
-- Create and configure an *.env* file from *.env.dist*
+- Create and configure an *.env* file from *.env.sample*
 - Build containers:
   
   ```
