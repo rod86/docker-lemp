@@ -6,7 +6,7 @@
 
 ## Setup
 
-- Create and configure an *.env* file from *.env.dist*
+- Create and configure an *.env* file from *.env.sample*
 - Build containers:
   
   ```
